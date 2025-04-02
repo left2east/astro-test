@@ -1,3 +1,10 @@
+---
+import Header from "../components/Header.astro"
+import Footer from '../components/Footer.astro';
+import '../assets/global.css';
+const { pageTitle } = Astro.props;
+
+---
 <!doctype html>
 <html lang="en">
 	<head>
@@ -6,13 +13,15 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
-
 	</head>
 	<body>
-		<a href="/">首页</a>
-		<a href="/about/">关于</a>
-		<a href="/blog/">博客</a>
+		<Header />
+		<h1>{pageTitle}</h1>
 		<slot />
+		<Footer />
+		<script>
+			import "../assets/menu.js";
+		  </script>
 	</body>
 </html>
 
